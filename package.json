@@ -1,0 +1,51 @@
+{
+  "name": "js-tdd-course",
+  "version": "1.0.0",
+  "description": "Curso de JS com TDD na pratica",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run test:coverage",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register tests/**/*.spec.js",
+    "test:coverage": "nyc npm test",
+    "test:tdd": "./node_modules/.bin/mocha --compilers js:babel-core/register tests/**/*.spec.js --watch"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": ["text", "html"],
+    "exclude": ["tests/**"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patygonsalves/js-tdd-course.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Patricia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patygonsalves/js-tdd-course/issues"
+  },
+  "homepage": "https://github.com/patygonsalves/js-tdd-course#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
+    "husky": "^0.14.3",
+    "mocha": "3.5.3",
+    "nyc": "^11.4.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
